@@ -1,0 +1,26 @@
+.not-found {
+  width: 100%;
+  height: calc(100vh - 60px);
+  /*para tirar o scroll, que não estava contando com o 60px do header*/
+  display: flex;
+  /*conseguir mudar o texto com justify ou align*/
+  justify-content: center;
+  /*alinhar vertical*/
+  align-items: center;
+  /*alinhar horizontal*/
+  flex-direction: column;
+}
+
+.not-found h1 {
+  font-size: 120px;
+}
+
+
+.not-found a {
+  text-decoration: none;
+  background-color: #116feb;
+  color: #FFF;
+  padding: 10px;
+  margin-top: 14px;
+  border-radius: 8px;
+}

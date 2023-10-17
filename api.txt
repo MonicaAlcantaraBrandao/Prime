@@ -1,0 +1,61 @@
+//api.js
+
+import axios from "axios";
+//BASE DA URL: https://api.themoviedb.org/3/
+
+//  URL DA API: /movie/now_playing?api_key=ebb664d477d95ead2719ebbedb8746ea&language=pt-br
+
+
+const api = axios.create({
+  baseURL: 'https://api.themoviedb.org/3/'
+})
+
+export default api;
+
+//Home - index.js
+
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+
+//URL DA API: /movie/now_playing?api_key=ebb664d477d95ead2719ebbedb8746ea&language=pt-br 
+
+//API COMEÇO
+
+function Home() {
+  const [fimes, setFilmes] = useState([]);
+
+  useEffect(() => {
+
+    async function loadFilmes() {
+      const response = await api.get("movie/now_playing", {
+        params: {
+          api_key: "ebb664d477d95ead2719ebbedb8746ea", language: "pt-BR",
+          page: 1,
+        }
+      })
+      // console.log(response.data.results.slice(0, 10))
+      setFilmes(response.data.results.slice(0, 10));
+    }
+
+    loadFilmes();
+
+  }, [])
+
+  return (
+    <div className="container">
+      <div className="lista-filmes">
+        {setFilmes.map((filme) => {
+          return (
+            <article>
+              <strong>
+                {filme.title}
+              </strong>
+            </article>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+export default Home;

@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true
+  },
+  "editor.tabSize": 2
+}
